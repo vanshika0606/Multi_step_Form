@@ -2,6 +2,7 @@ import React , {useState} from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { BsFillArrowRightCircleFill , BsFillArrowLeftCircleFill} from 'react-icons/bs'
 import Step1 from "./Step1";
+import Step2 from "./Step2";
 
 const Form = () => {
     const [step , setStep] = useState(1)
@@ -57,6 +58,7 @@ const Form = () => {
       </div>
       <div>
         { step==1 && <Step1/>}
+        { step==2 && <Step2/>}
 
 <div className={ (step==1? 'justify-end':'justify-between ')+ " flex md:mr-14"}>
         { step>=2 && <div className='flex mt-5 mb-7 items-center justify-end md:ml-4 cursor-pointer' onClick={PreviousStep}>
