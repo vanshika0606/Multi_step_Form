@@ -3,16 +3,24 @@ import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { BsFillArrowRightCircleFill , BsFillArrowLeftCircleFill} from 'react-icons/bs'
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import Step3 from "./Step3";
+import Step4 from "./Step4";
 
 const Form = () => {
     const [step , setStep] = useState(1)
 
     const NextStep = ()=>{
-        setStep(1+step)
+        if(step!=4){
+
+            setStep(1+step)
+        }
     }
 
     const PreviousStep = ()=>{
-        setStep(step-1)
+        
+
+            setStep(step-1)
+      
     }
 
   return (
@@ -57,8 +65,10 @@ const Form = () => {
         <div className={( step>=4? `bg-black`: `bg-slate-500`)+ ` w-2.5 h-2.5 rounded-full ml-5`}></div>
       </div>
       <div>
-        { step==1 && <Step1/>}
+        { step==1 && <Step1 step={step}/>}
         { step==2 && <Step2/>}
+        { step==3 && <Step3/>}
+        { step==4 && <Step4/>}
 
 <div className={ (step==1? 'justify-end':'justify-between ')+ " flex md:mr-14"}>
         { step>=2 && <div className='flex mt-5 mb-7 items-center justify-end md:ml-4 cursor-pointer' onClick={PreviousStep}>
@@ -69,7 +79,9 @@ const Form = () => {
 
         </div>}
         <div className=' flex mt-5 mb-7 items-center  justify-end cursor-pointer ml-9' onClick={NextStep}>
-            <h2 className='text-lg font-bold'>Next step</h2>
+            <h2 className='text-lg font-bold'>
+               {step==4 ? 'Confirm' :'Next step'}
+                </h2>
 
             <BsFillArrowRightCircleFill className='mt-1 ml-2 text-2xl text-yellow-700'/>
 

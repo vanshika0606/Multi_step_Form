@@ -4,12 +4,12 @@ import CardTwo from './CardTwo'
 import {BsFillArrowRightCircleFill} from "react-icons/bs"
 
 
-const Step1 = () => {
+const Step1 = (props) => {
     
 
   return (
     <div>
-    <div className='md:flex w-12/12'>
+    <div className={ ` md:flex w-12/12`}>
         <div className='flex md:w-5/12 flex-col mt-4'>
 
          <Card heading="Notary Signing Agent" para="Suitable for those who have purchased a brand new car"/>
