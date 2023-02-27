@@ -1,15 +1,21 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {BiRightArrowAlt} from "react-icons/bi"
 import {AiFillStar} from "react-icons/ai"
 
 const Card = (props) => {
     const heading= useRef('');
+    const [serve, setServe]= useState('');
+    const Click = useRef('')
 
-    
+    const cardClick=()=>{
+
+        setServe(heading.current.innerText);
+    }
 
 
   return (
-    <div className='rounded-lg md:w-12/12 border-2 hover:border-black p-3 px-4 mt-5' >
+    <div className={`rounded-lg md:w-12/12 border-2 bg-white hover:border-black p-3 px-4 mt-5 cursor-pointer hover:bg-orange-100`} ref={Click}  onClick={cardClick}>
+        {console.log(serve)}
 
       {heading.current.innerText=="Remote Online Notary" && <h3 className='float-right text-xs font-bold flex items-center'>
         <AiFillStar className='mr-1'/>
